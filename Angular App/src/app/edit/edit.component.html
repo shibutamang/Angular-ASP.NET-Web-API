@@ -1,0 +1,65 @@
+
+<nav class="navbar navbar-default">
+<div class="container">
+  <div class="navbar-header">
+    <a class="navbar-brand" routerLink="/home">AngularEMS</a>
+  </div>
+  <ul class="nav navbar-nav">
+    <li class="active"><a routerLink="/home">Home</a></li>
+    <li><button type="button" routerLink="/add" style="margin-top:14px;margin-left:10px;">Add Employee</button></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+     <li><a href="#" (click)="logOut()"><span class="glyphicon glyphicon-log-out"></span> LogOff</a></li>
+   </ul>
+</div>
+</nav>
+
+<div class="container">
+<div class="row">
+  <div class="col-md-3">
+    <ul class="list-group">
+      <li class="list-group-item active">Employee Details:</li>
+      <li class="list-group-item">ID: <span>{{empData.ID}}</span></li>
+      <li class="list-group-item">First Name: <span>{{empData.FirstName}}</span></li>
+      <li class="list-group-item">Last Name: <span>{{empData.LastName}}</span></li>
+      <li class="list-group-item">Address: <span>{{empData.Address}}</span></li>
+      <li class="list-group-item">Email: <span>{{empData.Email}}</span></li>
+      <li class="list-group-item">Phone: <span>{{empData.Phone}}</span></li>
+</ul>
+  </div>
+  <div class="col-md-9">
+    
+<div class="panel panel-default" style="max-width: 500px;">
+  <div class="panel-heading">
+    <label>Edit employee:</label>
+  </div>
+  <div class="panel-body">
+     <form #empUpdateForm="ngForm" (ngSubmit)="update()">
+        <div class="form-group">
+          <label>First Name:</label>
+          <input type="text" name="firstName" #firstName="ngModel" [(ngModel)]="empData.FirstName" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label>Last Name:</label>
+            <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="empData.LastName" class="form-control" required/>
+          </div>
+            <div class="form-group">
+            <label>Address:</label>
+            <input type="text" name="address" #address="ngModel" [(ngModel)]="empData.Address"  class="form-control" required/>
+          </div>
+            <div class="form-group">
+            <label>Email:</label>
+            <input type="text" name="email" #email="ngModel" [(ngModel)]="empData.Email" class="form-control" required/>
+          </div>
+            <div class="form-group">
+            <label>Phone:</label>
+            <input type="text" name="phone" #phone="ngModel" [(ngModel)]="empData.Phone" class="form-control" required/>
+          </div>
+          <button type="submit" class="btn btn-primary">Update</button>
+          <button class="btn btn-default pull-right" routerLink="/home">Cancel</button>
+      </form>
+  </div>
+</div>
+  </div>
+</div>
+</div>
